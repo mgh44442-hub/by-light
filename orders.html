@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>طلباتي</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Tahoma, Arial;
+}
+
+body{
+  margin:0;
+  background:linear-gradient(135deg,#020617,#0f172a);
+  color:#fff;
+}
+
+/* الهيدر */
+header{
+  text-align:center;
+  padding:14px;
+  background:#020617;
+  font-size:18px;
+  border-bottom:1px solid #1e293b;
+}
+
+/* الكونتينر */
+.container{
+  min-height:calc(100vh - 56px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+}
+
+/* الكارت */
+.card{
+  width:100%;
+  max-width:420px;
+  background:#020617;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 0 40px rgba(0,0,0,.7);
+}
+
+/* الطلب */
+.order{
+  background:#020617;
+  border:1px solid #1e293b;
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:12px;
+  font-size:14px;
+  line-height:1.7;
+}
+
+/* أزرار */
+button{
+  width:100%;
+  padding:16px;
+  margin-top:12px;
+  border-radius:14px;
+  border:none;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.back{
+  background:#22c55e;
+  color:#052e16;
+}
+
+.back:active{
+  transform:scale(.98);
+}
+
+.empty{
+  text-align:center;
+  opacity:.7;
+}
+</style>
+</head>
+
+<body>
+
+<header>طلباتي</header>
+
+<div class="container">
+  <div class="card" id="ordersBox">
+
+    <!-- الطلبات هتظهر هنا -->
+
+  </div>
+</div>
+
+<script>
+function loadOrders(){
+  let box = document.getElementById("ordersBox");
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  if(orders.length === 0){
+    box.innerHTML = `
+      <div class="empty">لا يوجد طلبات حتى الآن</div>
+      <button class="back" onclick="goBack()">طلب خدمة أخرى</button>
+    `;
+    return;
+  }
+
+  let html = "";
+  orders.forEach((o,i)=>{
+    html += `
+      <div class="order">
+        <b>الخدمة:</b> ${o.service}<br>
+        <b>الكمية:</b> ${o.qty}<br>
+        <b>الرابط:</b> ${o.link}<br>
+        <b>التاريخ:</b> ${o.date}
+      </div>
+    `;
+  });
+
+  html += `<button class="back" onclick="goBack()">طلب خدمة أخرى</button>`;
+  box.innerHTML = html;
+}
+
+function goBack(){
+  window.location.href = "dashboard.html";
+}
+
+loadOrders();
+</script>
+
+</body>
+</html>
