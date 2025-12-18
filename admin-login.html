@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>دخول الأدمن</title>
+<script src="main.js" defer></script>
+
+<style>
+*{box-sizing:border-box;font-family:Tahoma,Arial}
+body{
+  margin:0;min-height:100vh;
+  background:linear-gradient(135deg,#020617,#0f172a);
+  display:flex;justify-content:center;align-items:center;color:#fff
+}
+.container{
+  width:90%;max-width:360px;
+  background:#020617;padding:20px;
+  border-radius:14px;box-shadow:0 0 20px rgba(0,0,0,.5)
+}
+input,button{
+  width:100%;padding:12px;margin-bottom:12px;
+  border-radius:10px;border:none
+}
+input{background:#020617;border:1px solid #1e293b;color:#fff}
+button{background:#22c55e;font-weight:bold;cursor:pointer}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <input id="adminPass" type="password" placeholder="كلمة مرور الأدمن">
+  <button onclick="adminLogin()">دخول</button>
+</div>
+</body>
+</html>

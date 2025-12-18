@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="main.js" defer></script>
+<link rel="stylesheet" href="main.js">
+
+<title>light service - تسجيل الدخول</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  font-family:Tahoma, Arial;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#020617,#0f172a);
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+}
+
+/* الهيدر */
+header{
+  text-align:center;
+  padding:14px;
+  font-size:18px;
+  background:#020617;
+  border-bottom:1px solid #1e293b;
+}
+
+/* السنتر */
+.container{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px;
+}
+
+/* الكارت */
+.card{
+  width:100%;
+  max-width:380px;
+  background:#020617;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 0 40px rgba(0,0,0,.7);
+  text-align:center;
+}
+
+/* العنوان */
+.card h2{
+  margin:0 0 18px;
+  font-size:20px;
+}
+
+/* الإدخالات */
+input{
+  width:100%;
+  padding:14px;
+  margin-bottom:12px;
+  border-radius:12px;
+  border:1px solid #1e293b;
+  background:#020617;
+  color:#fff;
+  font-size:15px;
+}
+
+input::placeholder{
+  color:#94a3b8;
+}
+
+/* الأزرار */
+button{
+  width:100%;
+  padding:15px;
+  margin-top:10px;
+  border-radius:14px;
+  border:none;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.login{
+  background:#22c55e;
+  color:#052e16;
+}
+
+.register{
+  background:#16a34a;
+  color:#052e16;
+}
+
+button:active{
+  transform:scale(.98);
+}
+
+/* رابط */
+.link{
+  margin-top:14px;
+  font-size:14px;
+}
+
+.link a{
+  color:#38bdf8;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>Heraa - تسجيل الدخول</header>
+
+<div class="container">
+  <div class="card">
+
+    <h2>تسجيل الدخول</h2>
+
+    <input type="text" id="user" placeholder="اسم المستخدم">
+    <input type="password" id="pass" placeholder="كلمة المرور">
+
+    <button class="login" onclick="login()">دخول</button>
+    <button class="register" onclick="register()">إنشاء حساب</button>
+
+    <div class="link">
+      <a href="dashboard.html">الدخول بدون حساب</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function login(){
+  let u = document.getElementById("user").value;
+  let p = document.getElementById("pass").value;
+
+  if(!u || !p){
+    alert("من فضلك املأ البيانات");
+    return;
+  }
+
+  localStorage.setItem("user", u);
+  window.location.href = "dashboard.html";
+}
+
+function register(){
+  alert("سيتم إضافة التسجيل لاحقًا");
+}
+</script>
+
+</body>
+</html>
