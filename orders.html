@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ✔️ الصح -->
 <script src="main.js" defer></script>
-  
+
+<!-- ❌ الغلط كان هنا واتشال -->
+<!-- <link rel="stylesheet" href="main.js"> -->
+
 <title>طلباتي</title>
 
 <style>
@@ -114,12 +119,18 @@ function loadOrders(){
   let html = "";
   orders.forEach((o,i)=>{
     html += `
-      <div class="order">
-        <b>الخدمة:</b> ${o.service}<br>
-        <b>الكمية:</b> ${o.qty}<br>
-        <b>الرابط:</b> ${o.link}<br>
-        <b>التاريخ:</b> ${o.date}
-      </div>
+    let remain=Math.max(0,86400000-(Date.now()-o.time));
+      box.innerHTML+=`
+  <div class="badge">
+    الخدمة: ${o.service}<br>
+    الكمية: ${o.qty}<br>
+    الحالة: ${o.status}<br>
+    الرابط: ${o.link}<br>
+    إعادة الطلب بعد: ${Math.ceil(remain/3600000)} ساعة<br>
+    السعر: مجاني<br>
+    التواصل: 01556177235
+  </div>`;
+
     `;
   });
 
@@ -136,4 +147,3 @@ loadOrders();
 
 </body>
 </html>
-
