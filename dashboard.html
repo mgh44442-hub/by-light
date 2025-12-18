@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <script src="main.js" defer></script>
 
 <title>طلب خدمة تيك توك</title>
@@ -91,17 +92,17 @@ a{
 <div class="container">
   <div class="card">
 
-    <select>
-      <option>متابعين (100 يومياً)</option>
-      <option>مشاهدات (2000 يومياً)</option>
-      <option>لايكات (500 يومياً)</option>
-      <option>مفضلات (300 يومياً)</option>
+    <select id="serviceSel">
+      <option value="followers">متابعين (100 يومياً)</option>
+      <option value="views">مشاهدات (2000 يومياً)</option>
+      <option value="likes">لايكات (500 يومياً)</option>
+      <option value="favorites">مفضلات (300 يومياً)</option>
     </select>
 
-    <input type="number" placeholder="الكمية">
-    <input type="text" placeholder="رابط تيك توك">
+    <input id="quantity" type="number" placeholder="الكمية">
+    <input id="serviceLink" type="text" placeholder="رابط تيك توك">
 
-    <button>طلب الخدمة</button>
+    <button onclick="makeOrder()">طلب الخدمة</button>
 
     <a href="orders.html">طلباتي</a>
 
@@ -110,4 +111,3 @@ a{
 
 </body>
 </html>
-
